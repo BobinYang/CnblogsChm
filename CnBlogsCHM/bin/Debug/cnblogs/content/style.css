@@ -1,0 +1,531 @@
+#EntryTag {
+	FONT-SIZE: 9pt
+}
+#divRefreshComments {
+	TEXT-ALIGN: right; MARGIN-BOTTOM: 5px; FONT-SIZE: 9pt; MARGIN-RIGHT: 10px
+}
+.topicListFooter {
+	TEXT-ALIGN: right; MARGIN-TOP: 10px; MARGIN-RIGHT: 10px
+}
+#digg_block {
+	MARGIN-TOP: 10px
+}
+#author_profile {
+	MARGIN-TOP: 0px; WIDTH: 280px; MARGIN-BOTTOM: 10px; FLOAT: left; COLOR: #000; MARGIN-LEFT: 0px; FONT-SIZE: 12px
+}
+#author_profile A:hover {
+	TEXT-DECORATION: underline
+}
+.author_avatar {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; PADDING-LEFT: 2px; FLOAT: left; VERTICAL-ALIGN: top; BORDER-TOP: 0px; MARGIN-RIGHT: 5px; BORDER-RIGHT: 0px; PADDING-TOP: 5px
+}
+.author_profile_title {
+	COLOR: #666; FONT-WEIGHT: bold
+}
+.author_profile_info {
+	LINE-HEIGHT: 18px; FLOAT: left
+}
+#author_profile_follow {
+	
+}
+#author_profile_follow A:link {
+	
+}
+#div_digg {
+	TEXT-ALIGN: center; MARGIN-TOP: 10px; WIDTH: 120px; MARGIN-BOTTOM: 10px; FLOAT: right; FONT-SIZE: 12px; MARGIN-RIGHT: 30px
+}
+.diggit {
+	TEXT-ALIGN: center; MARGIN-TOP: 2px; WIDTH: 46px; BACKGROUND: url(http://static.cnblogs.com/images/upup.gif) no-repeat; FLOAT: left; HEIGHT: 52px; CURSOR: pointer; PADDING-TOP: 5px
+}
+.diggnum {
+	FONT-FAMILY: Verdana; COLOR: #075db3; FONT-SIZE: 14px
+}
+.buryit {
+	TEXT-ALIGN: center; MARGIN-TOP: 2px; WIDTH: 46px; BACKGROUND: url(http://static.cnblogs.com/images/downdown.gif) no-repeat; FLOAT: right; HEIGHT: 52px; MARGIN-LEFT: 20px; CURSOR: pointer; PADDING-TOP: 5px
+}
+.burynum {
+	FONT-FAMILY: Verdana; COLOR: #075db3; FONT-SIZE: 14px
+}
+.diggword {
+	MARGIN-TOP: 5px; COLOR: gray; MARGIN-LEFT: 0px; FONT-SIZE: 12px
+}
+A.digg_gray:link {
+	COLOR: gray; TEXT-DECORATION: underline
+}
+A.digg_gray:visited {
+	COLOR: gray; TEXT-DECORATION: underline
+}
+A.digg_gray:hover {
+	COLOR: red; TEXT-DECORATION: underline
+}
+A.digg_gray:active {
+	COLOR: gray; TEXT-DECORATION: underline
+}
+* {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+BODY {
+	LINE-HEIGHT: 1.8em; FONT-FAMILY: verdana, Arial, Helvetica, sans-serif; BACKGROUND: #dee7de; COLOR: #333; FONT-SIZE: 10pt
+}
+IMG {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; max-width: 800px
+}
+LI {
+	LIST-STYLE-TYPE: none; LIST-STYLE-IMAGE: none
+}
+INPUT {
+	BORDER-BOTTOM: #999 1px solid; BORDER-LEFT: #999 1px solid; BORDER-TOP: #999 1px solid; BORDER-RIGHT: #999 1px solid
+}
+TEXTAREA {
+	BORDER-BOTTOM: #999 1px solid; BORDER-LEFT: #999 1px solid; BORDER-TOP: #999 1px solid; BORDER-RIGHT: #999 1px solid
+}
+H1 {
+	COLOR: #000; FONT-WEIGHT: bold
+}
+H2 {
+	COLOR: #000; FONT-WEIGHT: bold
+}
+H3 {
+	COLOR: #000; FONT-WEIGHT: bold
+}
+H4 {
+	COLOR: #000; FONT-WEIGHT: bold
+}
+H5 {
+	COLOR: #000; FONT-WEIGHT: bold
+}
+H6 {
+	COLOR: #000; FONT-WEIGHT: bold
+}
+TH {
+	COLOR: #000; FONT-WEIGHT: bold
+}
+A {
+	COLOR: #333; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #999
+}
+#sideBar {
+	
+}
+#mainContent {
+	
+}
+.forFlow {
+	
+}
+#footer {
+	TEXT-ALIGN: center
+}
+#lnkBlogLogo {
+	DISPLAY: none
+}
+#blogTitle {
+	PADDING-BOTTOM: 16px; PADDING-LEFT: 16px; PADDING-RIGHT: 16px; PADDING-TOP: 16px
+}
+#blogTitle H1 {
+	FONT-SIZE: 17pt
+}
+#blogTitle H2 {
+	COLOR: #999; FONT-SIZE: 10.5pt
+}
+#blogTitle .title {
+	FONT-SIZE: 17pt
+}
+#blogTitle .subtitle {
+	COLOR: #999; FONT-SIZE: 10.5pt
+}
+#navigator {
+	BORDER-BOTTOM: #ccc 1px solid; BORDER-LEFT: #ccc 0px solid; PADDING-BOTTOM: 6px; PADDING-LEFT: 6px; PADDING-RIGHT: 6px; BACKGROUND: #f6f6f6; HEIGHT: 17px; COLOR: #999; BORDER-TOP: #ccc 1px solid; BORDER-RIGHT: #ccc 0px solid; PADDING-TOP: 6px
+}
+#navigator IMG {
+	DISPLAY: none
+}
+.blogStats {
+	FLOAT: right; COLOR: #999
+}
+#navList LI {
+	FLOAT: left; FONT-SIZE: 10.5pt; MARGIN-RIGHT: 20px
+}
+#sideBar H3 {
+	TEXT-ALIGN: left; MARGIN: 16px 0px 0px -8px; FONT-SIZE: 14px
+}
+#MyIng .ing_title {
+	TEXT-ALIGN: left; MARGIN: 16px 0px 0px -8px; FONT-SIZE: 14px
+}
+#calendar {
+	TEXT-ALIGN: center; MARGIN-TOP: 16px
+}
+#calendar TABLE {
+	MARGIN: 0px auto; WIDTH: 200px
+}
+#calendar .CalOtherMonthDay {
+	COLOR: #999
+}
+#sideBar .divRecentComment {
+	LINE-HEIGHT: 20px; MARGIN: 0px 0px 8px 8px; COLOR: #666; OVERFLOW: hidden
+}
+.ing_title A:link {
+	FONT-WEIGHT: bold
+}
+.ing_title A:visited {
+	FONT-WEIGHT: bold
+}
+.ing_title A:hover {
+	FONT-WEIGHT: bold
+}
+.ing_title A:active {
+	FONT-WEIGHT: bold
+}
+.dayTitle {
+	
+}
+.entrylistTitle {
+	TEXT-ALIGN: left; MARGIN-TOP: 20px; FONT-SIZE: 14px; FONT-WEIGHT: bold
+}
+.thumbTitle {
+	TEXT-ALIGN: left; MARGIN-TOP: 20px; FONT-SIZE: 14px; FONT-WEIGHT: bold
+}
+.PostListTitle {
+	TEXT-ALIGN: left; MARGIN-TOP: 20px; FONT-SIZE: 14px; FONT-WEIGHT: bold
+}
+.forFlow H3 DIV {
+	TEXT-ALIGN: left; MARGIN-TOP: 20px; FONT-SIZE: 14px; FONT-WEIGHT: bold
+}
+.galleryTitle {
+	TEXT-ALIGN: left; MARGIN-TOP: 20px; FONT-SIZE: 14px; FONT-WEIGHT: bold
+}
+.entrylistDescription {
+	MARGIN-LEFT: 16px
+}
+.thumbDescription {
+	MARGIN-LEFT: 16px
+}
+.postTitle {
+	BORDER-BOTTOM: #ddd 1px solid; MARGIN: 20px 0px 10px; FONT-SIZE: 14px; FONT-WEIGHT: bold
+}
+.entrylistPosttitle {
+	BORDER-BOTTOM: #ddd 1px solid; MARGIN: 20px 0px 10px; FONT-SIZE: 14px; FONT-WEIGHT: bold
+}
+.feedback_area_title {
+	BORDER-BOTTOM: #ddd 1px solid; MARGIN: 20px 0px 10px; FONT-SIZE: 14px; FONT-WEIGHT: bold
+}
+.postTitle {
+	MARGIN-TOP: 10px
+}
+.postBody P {
+	MARGIN-TOP: 12px
+}
+.postBody H5 {
+	FONT-SIZE: 10pt
+}
+.postBody H1 {
+	LINE-HEIGHT: 1.5
+}
+.postBody H2 {
+	LINE-HEIGHT: 1.5
+}
+.postBody {
+	LINE-HEIGHT: 1.8; FONT-SIZE: 14px
+}
+.postBody SPAN {
+	
+}
+.postBody UL {
+	MARGIN-LEFT: 45px
+}
+.postBody UL LI {
+	LIST-STYLE-TYPE: disc
+}
+.postCon A {
+	BORDER-BOTTOM: #333 1px dotted; COLOR: #000
+}
+.postBody A {
+	BORDER-BOTTOM: #333 1px dotted; COLOR: #000
+}
+.feedbackCon A {
+	BORDER-BOTTOM: #333 1px dotted; COLOR: #000
+}
+.postCon A:hover {
+	BORDER-BOTTOM-COLOR: #999; BORDER-TOP-COLOR: #999; BORDER-RIGHT-COLOR: #999; BORDER-LEFT-COLOR: #999
+}
+.postBody A:hover {
+	BORDER-BOTTOM-COLOR: #999; BORDER-TOP-COLOR: #999; BORDER-RIGHT-COLOR: #999; BORDER-LEFT-COLOR: #999
+}
+.feedbackCon A:hover {
+	BORDER-BOTTOM-COLOR: #999; BORDER-TOP-COLOR: #999; BORDER-RIGHT-COLOR: #999; BORDER-LEFT-COLOR: #999
+}
+.postDesc {
+	BORDER-BOTTOM: #999 1px dotted; TEXT-ALIGN: right; PADDING-TOP: 5px; COLOR: #999
+}
+.entrylistItemPostDesc {
+	BORDER-BOTTOM: #999 1px dotted; TEXT-ALIGN: right; PADDING-BOTTOM: 20px; COLOR: #999
+}
+.PostList {
+	BORDER-BOTTOM: #ccc 1px dotted; TEXT-ALIGN: right; PADDING-BOTTOM: 6px; MARGIN: auto; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FLOAT: none; CLEAR: both; OVERFLOW: hidden; PADDING-TOP: 6px
+}
+.postTitl2 {
+	FLOAT: left
+}
+.postText2 {
+	TEXT-ALIGN: left; COLOR: #666
+}
+.feedbackItem {
+	BORDER-BOTTOM: #ccc 1px dotted; PADDING-BOTTOM: 8px; PADDING-LEFT: 8px; PADDING-RIGHT: 8px; PADDING-TOP: 8px
+}
+.feedbackManage {
+	FLOAT: right
+}
+.feedbackCon {
+	COLOR: #666; MARGIN-LEFT: 1em
+}
+.commentform TD DIV SPAN {
+	MARGIN-LEFT: 12px
+}
+.gallery IMG {
+	MARGIN: 8px
+}
+#taglist {
+	MARGIN: 20px auto
+}
+.pfl_feedback_area_title {
+	MARGIN: 16px 0px; FONT-SIZE: 16px; FONT-WEIGHT: bold
+}
+.pfl_feedback_area_title A {
+	COLOR: #999; FONT-SIZE: 12px; FONT-WEIGHT: normal
+}
+.pfl_feedbacksubtitle {
+	HEIGHT: 30px
+}
+.pfl_feedbackname {
+	MARGIN: 10px 20px 0px 0px; FLOAT: left
+}
+.pfl_feedbackManage {
+	MARGIN: 10px 20px 0px 0px; FLOAT: left
+}
+.pfl_feedbackCon {
+	MARGIN-LEFT: 12px; CLEAR: both
+}
+.pfl_feedbackAnswer {
+	MARGIN-LEFT: 12px; CLEAR: both
+}
+.btn_my_zzk {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px
+}
+#sideBarMain {
+	PADDING-LEFT: 0px
+}
+#MyIng {
+	PADDING-LEFT: 10px
+}
+P {
+	MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px
+}
+BODY {
+	BACKGROUND: #dee7de; COLOR: #333
+}
+DIV.feedbackItem DIV.feedbackCon {
+	PADDING-BOTTOM: 7px; LINE-HEIGHT: 135%; PADDING-LEFT: 7px; PADDING-RIGHT: 0px; COLOR: #888; FONT-SIZE: 12px; PADDING-TOP: 7px
+}
+UL#navList LI {
+	MARGIN: 5px
+}
+DIV#navigator {
+	BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; HEIGHT: 0px; BORDER-TOP: medium none; BORDER-RIGHT: medium none; PADDING-TOP: 0px
+}
+DIV.blogStats {
+	POSITION: absolute; COLOR: #666; TOP: 110px; RIGHT: 30px
+}
+BODY UL#navList {
+	POSITION: absolute; FONT-SIZE: 12px; TOP: 28px; RIGHT: 30px
+}
+UL#navList A {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 2px; MARGIN: 0px; PADDING-LEFT: 0px; WIDTH: 45px; PADDING-RIGHT: 0px; DISPLAY: block; COLOR: #fff; FONT-SIZE: 12px; PADDING-TOP: 2px
+}
+UL#navList A:hover {
+	COLOR: #216173
+}
+DIV#footer {
+	DISPLAY: none
+}
+#sideBar {
+	BORDER-BOTTOM: #ced7ce 3px solid; POSITION: absolute; BORDER-LEFT: #ced7ce 1px solid; PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; WIDTH: 280px; PADDING-RIGHT: 0px; BACKGROUND: #fff; BORDER-TOP: #ced7ce 1px solid; TOP: 86px; BORDER-RIGHT: #ced7ce 3px solid; PADDING-TOP: 0px; LEFT: 8px
+}
+DIV#sideBarMain {
+	PADDING-BOTTOM: 30px; PADDING-LEFT: 20px; PADDING-RIGHT: 20px; PADDING-TOP: 0px
+}
+#mainContent {
+	 BACKGROUND: #dee7de; MARGIN-LEFT: 300px; MARGIN-RIGHT: 5px
+}
+DIV.forFlow {
+	BORDER-BOTTOM: #ced7ce 3px solid; BORDER-LEFT: #ced7ce 1px solid; PADDING-BOTTOM: 40px; PADDING-LEFT: 37px; PADDING-RIGHT: 37px; BACKGROUND: #fff; MARGIN-LEFT: 0px; BORDER-TOP: #ced7ce 1px solid; BORDER-RIGHT: #ced7ce 3px solid; PADDING-TOP: 45px; LEFT: 0px
+}
+DIV.postDesc {
+	BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; BORDER-TOP: medium none; BORDER-RIGHT: medium none
+}
+DIV.entrylistItemPostDesc {
+	BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; BORDER-TOP: medium none; BORDER-RIGHT: medium none
+}
+DIV#blogTitle {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BACKGROUND: url(images/header.gif) repeat-x left top; HEIGHT: 76px; PADDING-TOP: 0px
+}
+DIV#blogTitle H1 {
+	TEXT-INDENT: 30px; PADDING-TOP: 15px
+}
+DIV#blogTitle H1 A {
+	COLOR: #fff
+}
+DIV#blogTitle H2 {
+	TEXT-INDENT: 50px; MARGIN-BOTTOM: 0px; COLOR: #216173
+}
+DIV#blogTitle .title {
+	TEXT-INDENT: 30px; PADDING-TOP: 15px
+}
+DIV#blogTitle .title A {
+	COLOR: #fff
+}
+DIV#blogTitle .subtitle {
+	TEXT-INDENT: 50px; MARGIN-BOTTOM: 0px; COLOR: #216173
+}
+DIV#navigator A {
+	FONT-SIZE: 14px
+}
+A {
+	COLOR: #399ab2; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #9cba39
+}
+DIV.postTitle {
+	BORDER-BOTTOM: #eee 1px solid
+}
+DIV.postTitle A:visited {
+	COLOR: #9cba39
+}
+DIV.postDesc A:first-child {
+	COLOR: #888
+}
+DIV.postCon {
+	LINE-HEIGHT: 1.5; COLOR: #444; FONT-SIZE: 14px
+}
+DIV#content {
+	POSITION: relative; PADDING-BOTTOM: 0px; LINE-HEIGHT: 150%; PADDING-LEFT: 0.5em; PADDING-RIGHT: 0.5em; FONT-FAMILY: "????" "Arial" "verdana"; COLOR: #333; FONT-SIZE: 14px; WORD-BREAK: normal; PADDING-TOP: 10em
+}
+#content A {
+	BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; FONT-FAMILY: "Arial" "????" "Verdana"; COLOR: #07519a; BORDER-TOP: medium none; BORDER-RIGHT: medium none; TEXT-DECORATION: none
+}
+#content H1 {
+	Z-INDEX: 10; POSITION: absolute; TEXT-ALIGN: center; PADDING-BOTTOM: 1em; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; DISPLAY: block; FONT-FAMILY: "Arial" "????" "verdana"; FONT-SIZE: 30px; TOP: 1em; PADDING-TOP: 1em
+}
+#content H2 {
+	MARGIN: 2.5em 0px 1.5em; FONT-SIZE: 25px
+}
+#content H3 {
+	MARGIN: 2em 0px 1.5em; FONT-SIZE: 20px
+}
+#content H4 {
+	MARGIN: 1.5em 0px 1em; FONT-SIZE: 16px
+}
+DIV#content P {
+	TEXT-INDENT: 2em; MARGIN: 1em 0px; COLOR: #333; FONT-SIZE: 14px; WORD-BREAK: normal
+}
+#content P.note {
+	PADDING-BOTTOM: 5px; MARGIN: 1em; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; BACKGROUND: #f7f9ff; COLOR: #333; PADDING-TOP: 5px
+}
+#content P.Code {
+	PADDING-BOTTOM: 1em; TEXT-INDENT: 0px; MARGIN: 1em; PADDING-LEFT: 1em; PADDING-RIGHT: 1em; FONT-FAMILY: "Courier New" "????"; BACKGROUND: #f5f5f5; COLOR: #006; FONT-SIZE: 13px; PADDING-TOP: 1em
+}
+#content P.Output {
+	PADDING-BOTTOM: 1em; TEXT-INDENT: 0px; MARGIN: 1em; PADDING-LEFT: 1em; PADDING-RIGHT: 1em; FONT-FAMILY: "Courier New" "????"; BACKGROUND: #f5f5f5; COLOR: #006; FONT-SIZE: 13px; PADDING-TOP: 1em
+}
+#content P.Code P {
+	TEXT-INDENT: 0px
+}
+DIV#content UL {
+	MARGIN: 0px 2em
+}
+DIV#content OL {
+	MARGIN: 0px 2em
+}
+DIV#content UL LI {
+	MARGIN-LEFT: 1.5em
+}
+DIV#content OL LI {
+	MARGIN-LEFT: 1.5em
+}
+DIV#content UL LI {
+	LIST-STYLE-TYPE: disc
+}
+DIV#content OL LI {
+	LIST-STYLE-TYPE: decimal
+}
+#content LI UL LI {
+	MARGIN: 0.5em 0em
+}
+#content LI OL LI {
+	MARGIN: 0.5em 0em
+}
+#content DT {
+	PADDING-BOTTOM: 5px; PADDING-LEFT: 10px; PADDING-RIGHT: 0px; PADDING-TOP: 20px
+}
+#content DD {
+	PADDING-BOTTOM: 0px; LINE-HEIGHT: 140%; MARGIN: 0px 0px 0px 2em; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+DIV#content TABLE {
+	BORDER-BOTTOM: #888 1px solid; BORDER-LEFT: #888 1px solid; BORDER-COLLAPSE: collapse; BORDER-TOP: #888 1px solid; BORDER-RIGHT: #888 1px solid
+}
+DIV#content TABLE P {
+	LINE-HEIGHT: 135%; TEXT-INDENT: 0px; MARGIN: 0px 0px 0px 0.5em
+}
+DIV#content TABLE TD {
+	BORDER-BOTTOM: #888 1px solid; BORDER-LEFT: #888 1px solid; PADDING-BOTTOM: 4px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; FONT-SIZE: 14px; BORDER-TOP: #888 1px solid; BORDER-RIGHT: #888 1px solid; PADDING-TOP: 4px
+}
+#content TABLE TH {
+	BORDER-BOTTOM: #888 1px solid; BORDER-LEFT: #888 1px solid; PADDING-BOTTOM: 4px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; FONT-SIZE: 14px; BORDER-TOP: #888 1px solid; BORDER-RIGHT: #888 1px solid; PADDING-TOP: 4px
+}
+#side_ing_block UL {
+	COLOR: #399ab2; PADDING-TOP: 5px
+}
+#side_ing_block UL LI {
+	BACKGROUND-IMAGE: none
+}
+A.ing_lnk:link {
+	COLOR: #888
+}
+A.ing_lnk:active {
+	COLOR: #888
+}
+A.ing_lnk:visited {
+	COLOR: #888
+}
+A.ing_link:hover {
+	
+}
+#leftcontentcontainer UL {
+	OVERFLOW: hidden
+}
+.comment_vote A:link {
+	BORDER-BOTTOM: medium none; COLOR: gray; TEXT-DECORATION: none
+}
+.comment_vote A:active {
+	BORDER-BOTTOM: medium none; COLOR: gray; TEXT-DECORATION: none
+}
+.comment_vote A:visited {
+	BORDER-BOTTOM: medium none; COLOR: gray; TEXT-DECORATION: none
+}
+.comment_vote A:hover {
+	COLOR: #9cba39
+}
+DIV#navigator UL#navList {
+	POSITION: absolute; TOP: 30px; RIGHT: 20px
+}
+BODY DIV#navigator UL#li {
+	PADDING-BOTTOM: 3px; LINE-HEIGHT: 100%; MARGIN: 0px 1px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; HEIGHT: 0px; PADDING-TOP: 3px
+}
+DIV#navigator UL#navList LI A {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 7px; LINE-HEIGHT: 120%; MARGIN: 0px; PADDING-LEFT: 0px; WIDTH: 65px; PADDING-RIGHT: 0px; DISPLAY: block; BACKGROUND: #5ab2ce; COLOR: #fff; FONT-SIZE: 12px; PADDING-TOP: 4px
+}
+DIV#navigator UL#navList LI A:hover {
+	BACKGROUND: #7bc3d6
+}
