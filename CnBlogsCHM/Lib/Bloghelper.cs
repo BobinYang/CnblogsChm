@@ -92,8 +92,8 @@ namespace CnBlogsCHM
             {
                 return null;
             }
-            string regex = @"<a(?:(?!href=).)*href=(['""]?)(?<url>[^""\s>]*)\1[^>]*>(?<text>(?:(?!</?a\b).)*)</a>";
-            Regex rx = new Regex(regex);
+            string regex = @"<a class=""entrylistItemTitle"" (?:(?!href=).)*href=(['""]?)(?<url>[^""\s>]*)\1[^>]*>(?<text>(?:(?!</?a\b).)*)</a>";
+            Regex rx = new Regex(regex,RegexOptions.Singleline);
             return rx.Matches(content);
         }
 

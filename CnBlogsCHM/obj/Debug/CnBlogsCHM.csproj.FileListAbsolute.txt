@@ -5,3 +5,13 @@ D:\Personal\Downloads\CnblogsChm1.5.5\CnBlogsCHM\bin\Debug\HtmlAgilityPack.dll
 D:\Personal\Downloads\CnblogsChm1.5.5\CnBlogsCHM\bin\Debug\Newtonsoft.Json.dll
 D:\Personal\Downloads\CnblogsChm1.5.5\CnBlogsCHM\obj\Debug\CnBlogsCHM.exe
 D:\Personal\Downloads\CnblogsChm1.5.5\CnBlogsCHM\obj\Debug\CnBlogsCHM.pdb
+C:\Users\Admin\Documents\GitHub\CnblogsChm1\CnBlogsCHM\bin\Debug\CnBlogsCHM.exe.config
+C:\Users\Admin\Documents\GitHub\CnblogsChm1\CnBlogsCHM\bin\Debug\CnBlogsCHM.exe
+C:\Users\Admin\Documents\GitHub\CnblogsChm1\CnBlogsCHM\bin\Debug\CnBlogsCHM.pdb
+C:\Users\Admin\Documents\GitHub\CnblogsChm1\CnBlogsCHM\bin\Debug\HtmlAgilityPack.dll
+C:\Users\Admin\Documents\GitHub\CnblogsChm1\CnBlogsCHM\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Admin\Documents\GitHub\CnblogsChm1\CnBlogsCHM\obj\Debug\CnBlogsCHM.csprojAssemblyReference.cache
+C:\Users\Admin\Documents\GitHub\CnblogsChm1\CnBlogsCHM\obj\Debug\CnBlogsCHM.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Documents\GitHub\CnblogsChm1\CnBlogsCHM\obj\Debug\CnBlogsCHM.csproj.CopyComplete
+C:\Users\Admin\Documents\GitHub\CnblogsChm1\CnBlogsCHM\obj\Debug\CnBlogsCHM.exe
+C:\Users\Admin\Documents\GitHub\CnblogsChm1\CnBlogsCHM\obj\Debug\CnBlogsCHM.pdb

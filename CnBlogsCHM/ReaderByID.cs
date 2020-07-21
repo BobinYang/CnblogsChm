@@ -80,12 +80,23 @@ namespace CnBlogsCHM
                     */
                     var lstArticleUrls = new List<string>();
                     //获取该类别下的所有随笔页面内容，得到每个随笔链接
-                    MatchCollection matchPosts = Bloghelper.Filter(categoryUrl);
-                    foreach (Match mPost in matchPosts)
+
+                    string contentItems = Bloghelper.GetContent(categoryUrl);
+                    HtmlDocument contentItemsDoc = new HtmlDocument();
+                    contentItemsDoc.LoadHtml(contentItems);
+                    var contentNode = contentItemsDoc.GetElementbyId("content");
+                    var matchPosts = contentNode.SelectNodes("./div[@class=\"post\"]");
+                    //   MatchCollection matchPosts = Bloghelper.Filter(categoryUrl);
+                    int i = 0;
+                    foreach (var mPost in matchPosts)
                     {
+                        
                         //随笔链接
-                        var articleUrl = mPost.Groups["url"].ToString();
-                        var articleTitle = mPost.Groups["text"].ToString();
+
+                        var articleUrl = mPost.SelectSingleNode("h5/a").Attributes["href"].Value;
+                        var articleTitle = mPost.SelectSingleNode("h5/a/span").InnerText;
+                        var articleDate = mPost.SelectSingleNode("p[@class=\"postfoot\"]/a").InnerText;
+
 
                         // 2018/5/29 20:53 替换随笔链接中的https
                         articleUrl = articleUrl.Replace("https", "http");
@@ -107,9 +118,10 @@ namespace CnBlogsCHM
                             var text = articleTitle.RemoveFileInvalid();
                             var autoName = (obj.fileIndex++).ToString();
                             //打印提示信息
-                            Console.WriteLine("正在下载: {0}", articleTitle);
+                            Console.WriteLine("正在下载: {0}:{1} {2}", i++, articleTitle, articleDate);
                             //下载随笔内容 替换后保存本地
                             var contentCode = Bloghelper.GetContent(articleUrl);//获取随笔内容
+                            if (contentCode == null) continue;
                             HtmlDocument htmlCode = new HtmlDocument();
                             htmlCode.LoadHtml(contentCode);
                             var titleNode = htmlCode.GetElementbyId("cb_post_title_url");
@@ -128,10 +140,11 @@ namespace CnBlogsCHM
                                 continue;
                             }
                             var localHtml = template
-                                //.Replace("{channelTitle}", titleNode.InnerText)//博文标题
+                            //.Replace("{channelTitle}", titleNode.InnerText)//博文标题
                             .Replace("{channelTitle}", articleTitle)//博文标题
-                            .Replace("{preContent}", Bloghelper.DownImage(postBody.InnerHtml, obj.imgIndex))//博文内容
-                                //.Replace("{channelHref}", titleNode.GetAttributeValue("href", "#"))//博文地址
+                            .Replace("{preContent}", postBody.InnerHtml)
+                            //  .Replace("{preContent}", Bloghelper.DownImage(postBody.InnerHtml, obj.imgIndex))//博文内容
+                            //.Replace("{channelHref}", titleNode.GetAttributeValue("href", "#"))//博文地址
                             .Replace("{channelHref}", articleUrl)//博文地址
                             .Replace("{channelLink}", "http://www.cnblogs.com/" + userId + "/")//博客地址
                             .Replace("{channelPubDate}", postDate.InnerText)//发布时间
