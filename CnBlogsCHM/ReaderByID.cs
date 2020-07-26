@@ -30,139 +30,136 @@ namespace CnBlogsCHM
         public bool ReadBlogsByID(string userId, ReturnObj obj)
         {
             const string archive = "archive";//随笔 2013-06-17之后，随笔保存于http://www.cnblogs.com/userId/p/
-            int cateArticle = 1;//用于类别下第一篇博文时创建目录
+
             int AuthorStart = 1;//昵称开始位置
             int AuthorEnd = 1;//昵称结束位置
             string postAuthor = null;//昵称
-            //string url = "http://www.cnblogs.com/" + userId + "/mvc/blog/sidecolumn.aspx";//获取博客分类地址
-            // 2019/10/26 23:13 更新获取博客分类地址
-            string url = "http://www.cnblogs.com/" + userId + "/ajax/sidecolumn.aspx";//获取博客分类地址
-            Console.WriteLine("正在连接服务器，请稍候...");
+
             //模版设置
             string divFormat = "<div style='width:100%;float:left;margin-top:20px;background-color:#399ab2;font-size:20px;color:White;padding-left:5px'>{0}</div>";
             string liFormat = "<li style='width:49%;float:left;line-height:30px;'><a href='{0}' target='_self' title='{1}'>{1}</a></li>";
             string template = File.ReadAllText(".//temChild.html");
-            StringBuilder strIndex = new StringBuilder();//目录页
-            //得到显示所有分类的页面 匹配出所有链接
-            MatchCollection matchsCategories = Bloghelper.FilterC(url);
-            if (matchsCategories == null)
+
+
+            //获取分类目录
+            string urlCate = "http://www.cnblogs.com/" + userId + "/ajax/sidecolumn.aspx";//获取博客分类地址
+            Console.WriteLine("正在连接服务器，请稍候...");
+
+            string contentCate = Bloghelper.GetContent(urlCate);
+
+            if (string.IsNullOrEmpty(contentCate))
+            {
+                return false;
+            }
+
+
+            HtmlDocument docCate = new HtmlDocument();
+            docCate.LoadHtml(contentCate);
+            var cateNode = docCate.GetElementbyId("sidebar_categories");
+            var cateNodes = cateNode.SelectNodes("./ul/li/a/");
+
+
+
+            if (cateNodes == null)
             {
                 Console.WriteLine("未找到任何类别，请检查UserID是否正确");
                 Thread.Sleep(5000);
                 return false;
             }
-            const string category = "category";//分类
-            foreach (Match mCategory in matchsCategories)
-            {
-                //获取类别信息
-                //Console.WriteLine("正则过滤后的连接: {0}", mCategory.ToString());
 
-                var categoryNameOrigin = mCategory.Groups["text"].Value;
+            StringBuilder strIndex = new StringBuilder();//目录页 ,得到显示所有分类的页面 匹配出所有链接
+            int cateArticle;
+            foreach (HtmlNode mCategory in cateNodes)
+            {   cateArticle = 1;//用于类别下第一篇博文时创建目录
+                var categoryNameOrigin = mCategory.InnerText;
                 var categoryName = categoryNameOrigin.RemoveDirInvalid().Trim();
-                var categoryUrl = mCategory.Groups["url"].Value;
+                var categoryUrl = mCategory.Attributes["href"].Value;
 
-                // 2018/5/29 20:53 替换类别链接中的https
                 categoryUrl = categoryUrl.Replace("https", "http");
-                var lstCategory = new List<string>();
-                //categoryUrl = "http://www.cnblogs.com/Uest/category/897755.html";
-                if (categoryUrl.IndexOf(userId + "/" + category, StringComparison.OrdinalIgnoreCase) >= 0 && !lstCategory.Contains(categoryUrl))
+
+                Console.WriteLine();
+                Console.WriteLine("正在读取类别: {0}", categoryName);
+
+                /* 2017/7/18 18:58 先判断类别下是否有博文
+                //将该类别添加到目录
+                strIndex.AppendLine(divFormat.FormatString(mCategory.Groups["text"].Value));
+                strIndex.AppendLine("<ul style='padding-top:10px;clear:both;list-style:none;'>");
+                //以类别名称创建目录
+                Directory.CreateDirectory(".//cnblogs//" + obj.cateIndex + categoryName);
+                */
+              
+                string contentItems = Bloghelper.GetContent(categoryUrl);//获取该类别下的所有随笔页面内容，得到每个随笔链接
+                HtmlDocument contentItemsDoc = new HtmlDocument();
+                contentItemsDoc.LoadHtml(contentItems);
+                var contentNode = contentItemsDoc.GetElementbyId("content");
+                var matchPosts = contentNode.SelectNodes("./div[@class=\"post\"]");
+                int i = 0;
+
+                foreach (var mPost in matchPosts)
                 {
-                    Console.WriteLine();
-                    //Console.WriteLine("正在读取类别: {0}", mCategory.Groups["text"]);
-                    Console.WriteLine("正在读取类别: {0}", categoryName);
-                    lstCategory.Add(categoryUrl);
-                    /* 2017/7/18 18:58 先判断类别下是否有博文
-                    //将该类别添加到目录
-                    strIndex.AppendLine(divFormat.FormatString(mCategory.Groups["text"].Value));
-                    strIndex.AppendLine("<ul style='padding-top:10px;clear:both;list-style:none;'>");
-                    //以类别名称创建目录
-                    Directory.CreateDirectory(".//cnblogs//" + obj.cateIndex + categoryName);
-                    */
-                    var lstArticleUrls = new List<string>();
-                    //获取该类别下的所有随笔页面内容，得到每个随笔链接
+                    var articleUrl = mPost.SelectSingleNode("h5/a").Attributes["href"].Value; //随笔链接
+                    var articleTitle = mPost.SelectSingleNode("h5/a/span").InnerText;
+                    var articleDate = mPost.SelectSingleNode("p[@class=\"postfoot\"]/a").InnerText;
 
-                    string contentItems = Bloghelper.GetContent(categoryUrl);
-                    HtmlDocument contentItemsDoc = new HtmlDocument();
-                    contentItemsDoc.LoadHtml(contentItems);
-                    var contentNode = contentItemsDoc.GetElementbyId("content");
-                    var matchPosts = contentNode.SelectNodes("./div[@class=\"post\"]");
-                    //   MatchCollection matchPosts = Bloghelper.Filter(categoryUrl);
-                    int i = 0;
-                    foreach (var mPost in matchPosts)
+                    articleUrl = articleUrl.Replace("https", "http");
+
+ 
+                    if (cateArticle == 1)
                     {
-                        
-                        //随笔链接
-
-                        var articleUrl = mPost.SelectSingleNode("h5/a").Attributes["href"].Value;
-                        var articleTitle = mPost.SelectSingleNode("h5/a/span").InnerText;
-                        var articleDate = mPost.SelectSingleNode("p[@class=\"postfoot\"]/a").InnerText;
-
-
-                        // 2018/5/29 20:53 替换随笔链接中的https
-                        articleUrl = articleUrl.Replace("https", "http");
-                        if ((articleUrl.IndexOf(userId + "/" + archive, StringComparison.OrdinalIgnoreCase) >= 0
-                            || articleUrl.IndexOf(userId + "/p", StringComparison.OrdinalIgnoreCase) >= 0) && articleUrl.IndexOf('#') < 0 && !lstArticleUrls.Contains(articleUrl))
-                        {
-                            // 2017/7/18 18:58 仅当类别下有博文时
-                            if (cateArticle == 1)
-                            {
-                                //将该类别添加到目录
-                                strIndex.AppendLine(divFormat.FormatString(categoryNameOrigin));
-                                strIndex.AppendLine("<ul style='padding-top:10px;clear:both;list-style:none;'>");
-                                //以类别名称创建目录
-                                Directory.CreateDirectory(".//cnblogs//" + obj.cateIndex + categoryName);
-                                cateArticle++;
-                            }
-
-                            lstArticleUrls.Add(articleUrl);
-                            var text = articleTitle.RemoveFileInvalid();
-                            var autoName = (obj.fileIndex++).ToString();
-                            //打印提示信息
-                            Console.WriteLine("正在下载: {0}:{1} {2}", i++, articleTitle, articleDate);
-                            //下载随笔内容 替换后保存本地
-                            var contentCode = Bloghelper.GetContent(articleUrl);//获取随笔内容
-                            if (contentCode == null) continue;
-                            HtmlDocument htmlCode = new HtmlDocument();
-                            htmlCode.LoadHtml(contentCode);
-                            var titleNode = htmlCode.GetElementbyId("cb_post_title_url");
-                            var postBody = htmlCode.GetElementbyId("cnblogs_post_body");
-                            var postDate = htmlCode.GetElementbyId("post-date");
-                            //var topics = htmlCode.GetElementbyId("topics");
-                            // 2017/11/24 20:58 增加Author(昵称)Start
-                            var postDetail = htmlCode.GetElementbyId("post_detail");
-                            AuthorStart = postDetail.InnerHtml.IndexOf("post-date") + 73 + userId.Length + 4;
-                            AuthorEnd = postDetail.InnerHtml.IndexOf("<", AuthorStart);
-                            postAuthor = postDetail.InnerHtml.Substring(AuthorStart, AuthorEnd - AuthorStart);
-                            // 2017/11/24 20:58 增加Author(昵称)End
-                            if (titleNode == null || postBody == null || postDate == null)
-                            {
-                                Console.WriteLine("该随笔获取异常，请检查是否设置了只允许注册用户访问，或其他原因。");
-                                continue;
-                            }
-                            var localHtml = template
-                            //.Replace("{channelTitle}", titleNode.InnerText)//博文标题
-                            .Replace("{channelTitle}", articleTitle)//博文标题
-                            .Replace("{preContent}", postBody.InnerHtml)
-                            //  .Replace("{preContent}", Bloghelper.DownImage(postBody.InnerHtml, obj.imgIndex))//博文内容
-                            //.Replace("{channelHref}", titleNode.GetAttributeValue("href", "#"))//博文地址
-                            .Replace("{channelHref}", articleUrl)//博文地址
-                            .Replace("{channelLink}", "http://www.cnblogs.com/" + userId + "/")//博客地址
-                            .Replace("{channelPubDate}", postDate.InnerText)//发布时间
-                            .Replace("{channelAuthor}", postAuthor);//博文作者userId
-                            var fileName = "./cnblogs/" + obj.cateIndex + categoryName + "/" + autoName + ".html";
-                            File.WriteAllText(fileName, localHtml, Encoding.UTF8);
-                            //添加目录项
-                            var relativePath = obj.cateIndex + categoryName + "/" + autoName + ".html";
-                            strIndex.AppendLine(liFormat.FormatString(relativePath, text));
-                            //添加该文件的友好名称
-                            obj.dicConvert.Add(Path.GetFullPath(fileName), articleTitle);
-                        }
+                        //将该类别添加到目录
+                        strIndex.AppendLine(divFormat.FormatString(categoryNameOrigin));
+                        strIndex.AppendLine("<ul style='padding-top:10px;clear:both;list-style:none;'>");
+                        //以类别名称创建目录
+                        Directory.CreateDirectory(".//cnblogs//" + obj.cateIndex + categoryName);
+                        cateArticle++;
                     }
-                    //随笔类别结束UL标记
-                    strIndex.AppendLine("</ul>");
-                    obj.cateIndex++;
-                    cateArticle = 1;
+
+                    var text = articleTitle.RemoveFileInvalid();
+                    var autoName = (obj.fileIndex++).ToString();
+                    //打印提示信息
+                    Console.WriteLine("正在下载: {0}:{1} {2}", i++, articleTitle, articleDate);
+                    //下载随笔内容 替换后保存本地
+                    var contentCode = Bloghelper.GetContent(articleUrl);//获取随笔内容
+                    if (contentCode == null) continue;
+                    HtmlDocument htmlCode = new HtmlDocument();
+                    htmlCode.LoadHtml(contentCode);
+                    var titleNode = htmlCode.GetElementbyId("cb_post_title_url");
+                    var postBody = htmlCode.GetElementbyId("cnblogs_post_body");
+                    var postDate = htmlCode.GetElementbyId("post-date");
+                    //var topics = htmlCode.GetElementbyId("topics");
+         
+                    var postDetail = htmlCode.GetElementbyId("post_detail");
+                    AuthorStart = postDetail.InnerHtml.IndexOf("post-date") + 73 + userId.Length + 4;
+                    AuthorEnd = postDetail.InnerHtml.IndexOf("<", AuthorStart);
+                    postAuthor = postDetail.InnerHtml.Substring(AuthorStart, AuthorEnd - AuthorStart);
+
+                    if (titleNode == null || postBody == null || postDate == null)
+                    {
+                        Console.WriteLine("该随笔获取异常，请检查是否设置了只允许注册用户访问，或其他原因。");
+                        continue;
+                    }
+                    var localHtml = template
+                    //.Replace("{channelTitle}", titleNode.InnerText)//博文标题
+                    .Replace("{channelTitle}", articleTitle)//博文标题
+                    .Replace("{preContent}", postBody.InnerHtml)
+                    //  .Replace("{preContent}", Bloghelper.DownImage(postBody.InnerHtml, obj.imgIndex))//博文内容
+                    //.Replace("{channelHref}", titleNode.GetAttributeValue("href", "#"))//博文地址
+                    .Replace("{channelHref}", articleUrl)//博文地址
+                    .Replace("{channelLink}", "http://www.cnblogs.com/" + userId + "/")//博客地址
+                    .Replace("{channelPubDate}", postDate.InnerText)//发布时间
+                    .Replace("{channelAuthor}", postAuthor);//博文作者userId
+                    var fileName = "./cnblogs/" + obj.cateIndex + categoryName + "/" + autoName + ".html";
+                    File.WriteAllText(fileName, localHtml, Encoding.UTF8);
+                    //添加目录项
+                    var relativePath = obj.cateIndex + categoryName + "/" + autoName + ".html";
+                    strIndex.AppendLine(liFormat.FormatString(relativePath, text));
+                    //添加该文件的友好名称
+                    obj.dicConvert.Add(Path.GetFullPath(fileName), articleTitle);
+
                 }
+                //随笔类别结束UL标记
+                strIndex.AppendLine("</ul>");
+                obj.cateIndex++;
             }
             //创建完毕后写入目录
             if (strIndex.Length == 0)

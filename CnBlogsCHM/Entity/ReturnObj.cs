@@ -21,17 +21,36 @@ namespace CnBlogsCHM.Entity
     {
         public ReturnObj()
         {
-            imgIndex = 1;//图片数量(作为图片文件名使用)
-            title = "我的CHM";//CHM标题
-            fileIndex = 10001;//文件数量
-            cateIndex = 101;//目录数量
+            imgIndex = 1;
+            title = "我的CHM";
+            fileIndex = 10001;
+            cateIndex = 101;
             dicConvert = new Dictionary<string, string>();
         }
 
-        public int imgIndex { get; set; }//图片数量(作为图片文件名使用)
-        public string title { get; set; }//CHM标题
-        public int fileIndex { get; set; }//文件数量
-        public int cateIndex { get; set; }//目录数量
+        /// <summary>
+        /// 图片数量(作为图片文件名使用)，默认从1开始
+        /// </summary>
+        public int imgIndex { get; set; }
+
+        /// <summary>
+        /// CHM标题，默认我的CHM
+        /// </summary>
+        public string title { get; set; }
+
+        /// <summary>
+        /// 文件数量,从10001开始
+        /// </summary>
+        public int fileIndex { get; set; }
+
+        /// <summary>
+        /// 目录数量，从101开始
+        /// </summary>
+        public int cateIndex { get; set; }//
+
+        /// <summary>
+        ///
+        /// </summary>
         public Dictionary<string, string> dicConvert { get; set; }
     }
 }
